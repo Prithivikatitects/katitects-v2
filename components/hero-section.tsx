@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+import HeroImg from "@/public/images/hero.jpg";
+import HeroImg2 from "@/public/images/hero-2.jpg";
 
 // Variants for staggered text reveal
 const containerVariants = {
@@ -160,13 +162,25 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
           >
-            <div className="relative group h-[500px] lg:h-[600px] overflow-hidden">
+            <div className="relative h-[500px] lg:h-[600px] overflow-hidden">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-emerald-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative h-full overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br from-muted/50 to-muted/30 p-3 backdrop-blur-sm transition-all duration-300 group-hover:border-purple-500/30 group-hover:shadow-2xl group-hover:shadow-purple-500/10">
-                <div className="relative h-full w-[140%] -mr-[40%]">
+              <div className="relative h-full flex flex-col gap-4 w-full overflow-hidden rounded-2xl bg-gradient-to-br from-muted/50 to-muted/30 p-3 backdrop-blur-sm transition-all duration-300 border border-purple-500">
+                {/* Image 1 */}
+                <div className="relative h-full w-[140%] -mr-[40%] group">
                   <Image
-                    src="/images/hero-interior.png"
+                    src={HeroImg}
+                    alt="Modern interior design rendering showcasing AI-powered architecture"
+                    fill
+                    className="rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority
+                  />
+                </div>
+
+                {/* Image 2 */}
+                <div className="relative h-full w-[140%] -mr-[40%] group">
+                  <Image
+                    src={HeroImg2}
                     alt="Modern interior design rendering showcasing AI-powered architecture"
                     fill
                     className="rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"

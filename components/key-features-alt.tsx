@@ -1,11 +1,18 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { Reveal } from "./animations/reveal"; // ✅ import your reveal component
+import { Reveal } from "./animations/reveal";
+import Feature1Img from "@/public/images/key-feature-1.avif";
+import Feature2Img from "@/public/images/key-feature-2.jpg";
+import Feature3Img from "@/public/images/key-feature-3.jpg";
+import Feature4Img from "@/public/images/key-feature-4.jpg";
+import Feature5Img from "@/public/images/key-feature-5.webp";
+import Feature6Img from "@/public/images/key-feature-6.png";
+import { cn } from "@/lib/utils";
 
 type Feature = {
   title: string;
   description: string;
-  image: string;
+  image: any;
   gradient: string;
 };
 
@@ -14,42 +21,42 @@ const features: Feature[] = [
     title: "Instant rendering and visualization",
     description:
       "Drop in your sketch or plan and get polished, presentation-ready renders in minutes with realistic materials.",
-    image: "/placeholder.svg?height=160&width=320",
+    image: Feature1Img,
     gradient: "from-purple-600 to-indigo-600",
   },
   {
     title: "Smart material suggestions",
     description:
       "Receive context-aware palettes matched to your style, lighting, and budget—ready to apply in one click.",
-    image: "/placeholder.svg?height=160&width=320",
+    image: Feature2Img,
     gradient: "from-emerald-600 to-teal-600",
   },
   {
-    title: "Lighting presets and mood",
+    title: "Intelligent design suggestions",
     description:
-      "Preview daylight, golden hour, and interior moods instantly to evaluate ambiance and clarity.",
-    image: "/placeholder.svg?height=160&width=320",
+      "Let the AI work its magic! Within minutes, receive a high-resolution, beautifully rendered image ready to showcase or present to clients.",
+    image: Feature3Img,
     gradient: "from-amber-500 to-orange-600",
   },
   {
     title: "One-click style variations",
     description:
       "Explore multiple stylistic takes—minimal, Scandinavian, industrial—without changing your layout.",
-    image: "/placeholder.svg?height=160&width=320",
+    image: Feature4Img,
     gradient: "from-cyan-600 to-blue-600",
   },
   {
     title: "Precision masking tools",
     description:
       "Emphasize key areas with non-destructive masks for refined details and client-ready results.",
-    image: "/placeholder.svg?height=160&width=320",
+    image: Feature5Img,
     gradient: "from-pink-600 to-fuchsia-600",
   },
   {
     title: "Export and share anywhere",
     description:
-      "Deliver hi-res images and short clips optimized for presentations, reviews, and social.",
-    image: "/placeholder.svg?height=160&width=320",
+      "Deliver hi-res images optimized for presentations, reviews, and social.",
+    image: Feature6Img,
     gradient: "from-lime-600 to-green-600",
   },
 ];
@@ -61,7 +68,10 @@ export function KeyFeaturesAltSection() {
         <header className="mb-10 md:mb-12">
           <Reveal>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-              Our Key Features
+              Our Key{" "}
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                Features
+              </span>
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
@@ -73,10 +83,10 @@ export function KeyFeaturesAltSection() {
           </Reveal>
         </header>
 
-        <div className="grid gap-6 sm:gap-7 md:gap-8 md:grid-cols-2">
+        <div className="grid gap-6 sm:gap-7 md:gap-8 md:grid-cols-2 h-full">
           {features.map((f, i) => (
             <Reveal delay={0.2 * (i + 1)} key={i}>
-              <article className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-4 sm:p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-border">
+              <article className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-4 sm:p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-border h-full">
                 {/* gradient ring on hover */}
                 <div
                   className={`pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br ${f.gradient} opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-15`}
@@ -97,7 +107,9 @@ export function KeyFeaturesAltSection() {
                         alt={f.title}
                         fill
                         sizes="(min-width: 768px) 520px, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        className={cn(
+                          "object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        )}
                       />
                       {/* soft tint */}
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent dark:from-white/5" />

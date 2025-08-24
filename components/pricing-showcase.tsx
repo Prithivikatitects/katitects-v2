@@ -126,7 +126,7 @@ export function PricingShowcaseSection() {
               <Reveal key={plan.name} delay={0.1 * idx}>
                 <article
                   className={[
-                    "group glass-hover relative overflow-hidden rounded-2xl border bg-card/60 p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg",
+                    "group h-full glass-hover relative overflow-hidden rounded-2xl border bg-card/60 p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg",
                     "border-border/60 hover:border-border",
                     isHighlight
                       ? "md:-translate-y-1 ring-1 ring-inset ring-purple-500/30"

@@ -2,6 +2,8 @@
 
 import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
 import { Reveal } from "./animations/reveal";
+import Logo from "@/public/images/logo.png";
+import Image from "next/image";
 
 export function SiteFooter() {
   return (
@@ -13,7 +15,13 @@ export function SiteFooter() {
           <Reveal>
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-md" />
+                <Image
+                  src={Logo}
+                  height={100}
+                  width={100}
+                  alt="logo"
+                  className="h-7 w-7 cursor-pointer hover:scale-105 transition-all duration-200"
+                />
               </div>
               <div className="text-lg font-semibold">Katitects</div>
             </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./animations/reveal";
+import HeroCTAImg from "@/public/images/hero.webp";
 
 export function CTASection() {
   return (
@@ -36,7 +37,7 @@ export function CTASection() {
             <Reveal delay={0.1}>
               <div className="relative h-52 w-full overflow-hidden rounded-2xl md:h-60 lg:h-64">
                 <Image
-                  src="/images/cta-livingroom.png"
+                  src={HeroCTAImg}
                   alt="Warm living room showcasing finished interior design"
                   fill
                   sizes="(min-width: 1024px) 520px, (min-width: 640px) 80vw, 100vw"

@@ -11,7 +11,7 @@ export function LogoSection() {
 
   return (
     <section className="border-t border-border/40 bg-gradient-to-b from-muted/30 to-muted/10 py-10">
-      <div className="container px-4">
+      <div className="container px-4 mx-auto">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <p className="text-center text-sm font-medium text-muted-foreground mb-12">
