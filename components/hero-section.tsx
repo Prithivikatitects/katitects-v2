@@ -7,6 +7,8 @@ import { Sparkles, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import HeroImg from "@/public/images/hero.jpg";
 import HeroImg2 from "@/public/images/hero-2.jpg";
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 
 // Variants for staggered text reveal
 const containerVariants = {
@@ -27,6 +29,12 @@ const wordVariants = {
 };
 
 export function HeroSection() {
+  const router = useRouter();
+
+  const navigateToSignIn = useCallback(() => {
+    router.push("/auth");
+  }, [router]);
+
   return (
     <section className="container px-4 py-24 md:py-32 overflow-hidden mx-auto">
       <div className="mx-auto w-full max-w-5xl">
@@ -119,7 +127,9 @@ export function HeroSection() {
                 size="lg"
                 className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
               >
-                <span className="relative z-10">Sign In</span>
+                <span onClick={navigateToSignIn} className="relative z-10">
+                  Sign In
+                </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               </Button>
               <Button
